@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script type="module" src="./scripts/index.js" defer></script>
+</head>
+
+<body>
+    <div class="container flow">
+        <header>
+            <nav>
+                <h1>Game challenges list</h1><button type="button" class="button-20" id="btn_clear">Clear Local Storage</button>
+            </nav>
+        </header>
+        <main>
+
+            <dialog>
+                <form method="dialog">
+                    <section class="dialog-contentwrapper">
+                        <button class="close button-20 flow material-symbols-outlined" title="Close">close</button>
+                        <p id="modal-title" class="flow">Some text in the Modal..</p>
+                        <section>
+                            <button id="modal-button" class="button-20">Yes</button>
+                            <button id="modal-no" class="button-20">No</button>
+                            <button id="modal-cancel" class="button-20" autofocus>Cancel</button>
+                        </section>
+                    </section>
+                </form>
+            </dialog>    
+
+            <section class="oddcolorrow flow">
+                <fieldset>
+                    <legend>search for game to add</legend>
+                    <form id="formSearch" class="flow">
+                        <input type="text" id="searchName" placeholder="Name of game" required />
+                        <button type="submit" class="button-20">Search rawg.io for NES games</button>
+                    </form>
+                </fieldset>
+            </section>
+
+            <section id="gameList" class="cards-container flow">           
+            </section>
+
+            <section class="oddcolorrow flow">
+                <fieldset>
+                    <legend>add challenge to a game</legend>
+                    <form id="formAddChallenge" class="flow">
+                        <input type="text" id="challengeName" placeholder="Challenge" required />
+                        <select id="game" required>
+                        </select>
+                        <button type="submit" class="button-20">Add Challenge</button>
+                    </form>
+                </fieldset>
+            </section>
+
+
+            <section id="challengeList"></section>
+
+        </main>
+        <footer>
+            <div class="footwrapper flow">
+                I am using <a href="rawg.io">rawg.io</a> for the source of game data and images to create this page.
+                Free for personal use as long as you attribute RAWG as the source of the data and/or images and add an active hyperlink
+                from every page where the data of RAWG is used.
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
