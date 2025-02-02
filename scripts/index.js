@@ -100,24 +100,38 @@ async function fetchGames(searchQuery) {
         const url = new URL(ENDPOINT + '/games');
         url.searchParams.set('key', APIKEY);
         url.searchParams.set('platforms', '49');
-        url.searchParams.set('search', searchQuery);     
+        url.searchParams.set('search', searchQuery);    
         
-        const resp = await fetch(url.toString());
+        const resp = await fetch(url.toString(), { signal: AbortSignal.timeout(10000) });
+        
+        // const resp = await fetch(url.toString(), {
+        //         headers: {
+        //           'Access-Control-Allow-Origin': '*',
+        //         mode: 'no-cors'  
+        // }});
+        
         if (!resp.ok)
             throw new Error(`Error:  ${resp.status}`);
 
         return await resp.json();
     } catch (e) {
-        console.error(e);
-        //TODO: open modal with errormessage
+        const modalOK = () => { search(); };
+        modalConfirm(`<p class="flow">Searching RAWG did not succeed:</p>
+            <details class="flow">
+            <summary>Error message</summary>
+            <p>${e}</p>
+            </details>
+            Do you want to retry?`, modalOK);
+        return null;
     }
 }
 
 // Used by SearchGames
 async function search() {
     /* https://api.rawg.io/api/games */
-    const myJSON = await fetchGames(document.getElementById('searchName').value.trim());
-    redrawSearchItems(myJSON.results);
+    const myJSON = await fetchGames(encodeURIComponent(document.getElementById('searchName').value.trim()));
+    if(myJSON !== null)
+        redrawSearchItems(myJSON.results);
 }
 
 const challengePrototype = {
