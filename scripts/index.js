@@ -100,16 +100,10 @@ async function fetchGames(searchQuery) {
         const url = new URL(ENDPOINT + '/games');
         url.searchParams.set('key', APIKEY);
         url.searchParams.set('platforms', '49');
-        url.searchParams.set('search', searchQuery);    
+        url.searchParams.set('search', searchQuery);
         
         const resp = await fetch(url.toString(), { signal: AbortSignal.timeout(10000) });
-        
-        // const resp = await fetch(url.toString(), {
-        //         headers: {
-        //           'Access-Control-Allow-Origin': '*',
-        //         mode: 'no-cors'  
-        // }});
-        
+               
         if (!resp.ok)
             throw new Error(`Error:  ${resp.status}`);
 
