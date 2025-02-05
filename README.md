@@ -1,4 +1,4 @@
-## Project I created in my accelerated course in frontend development
+## 2025v5-js-RAWG - for my accelerated course in frontend development
 
 A TODO-list where items are saved in Local Storage with custom categories where the categories are fetched from an API.
 
@@ -16,3 +16,7 @@ It's niched for NES 8bit games and the challenges I can put up for myself in tho
 `export default APIKEY`
 
 [^1]: RAWG is down 2025-02-03. Might be up again when you read this.
+
+### License
+I'm using hard coded endpoint to rawg.io which is free for non-commercial personal or non-commercial hobby projects if you include backlinks to RAWG from pages where the data is used.
+See [UNLICENSE.txt](https://github.com/reenhilm/2025v5-js-RAWG/blob/main/UNLICENSE.txt) regarding my own code
